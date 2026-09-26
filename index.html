@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Career Console</title>
+<meta name="description" content="A free desktop app for Hong Kong students: your whole career in one place, a CV built only from what you've done, and the jobs that fit you.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  /* Published by desktop/release.mjs to GitHub Pages; the button always points at the newest release. */
+  :root { --bg:#F3F1EC; --card:#fff; --ink:#16191E; --ink-2:#4A5059; --ink-3:#7C828C; --line:#D8D3C8; --you:#B9791A; --you-soft:#F6E8CC; --build:#1F8A80; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0F1217; --card:#171B21; --ink:#E8E6E0; --ink-2:#AEB3BA; --ink-3:#7B818A; --line:#2A3039; --you:#E2AB3C; --you-soft:#2E2512; --build:#4DBDB1; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "IBM Plex Sans", system-ui, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 56px 20px 80px; }
+  .brand { font: 700 18px "Bricolage Grotesque", sans-serif; }
+  h1 { font: 700 clamp(34px, 6vw, 60px)/1.05 "Bricolage Grotesque", sans-serif; letter-spacing: -.02em; margin: 40px 0 16px; max-width: 16ch; }
+  .lede { font-size: 19px; color: var(--ink-2); max-width: 56ch; }
+  .cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin: 28px 0 8px; }
+  .btn { background: var(--you); color: #fff; font-weight: 600; padding: 14px 22px; border-radius: 10px; text-decoration: none; font-size: 16px; }
+  .small { font: 12.5px "IBM Plex Mono", monospace; color: var(--ink-3); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 56px 0; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .step b { font: 700 13px "IBM Plex Mono", monospace; color: var(--you); }
+  .step h3 { font: 700 18px "Bricolage Grotesque", sans-serif; margin: 6px 0; }
+  .step p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+  h2 { font: 700 26px "Bricolage Grotesque", sans-serif; margin: 48px 0 10px; }
+  .tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .tier { border: 1px solid var(--line); border-radius: 14px; padding: 18px; background: var(--card); }
+  .tier.pro { border-color: var(--you); background: var(--you-soft); }
+  ul, ol { padding-left: 18px; color: var(--ink-2); }
+  .install li { margin: 6px 0; }
+  footer { margin-top: 64px; color: var(--ink-3); font-size: 13px; }
+  .status { display: inline-flex; align-items: center; gap: 8px; font: 12.5px "IBM Plex Mono", monospace; color: var(--ink-3); margin-top: 10px; }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-3); }
+  .status.online i { background: var(--build); } .status.online { color: var(--build); }
+  .status.resting i { background: var(--you); }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Career Console</div>
+  <h1>Apply like you have a careers team.</h1>
+  <p class="lede">Tell it everything you've done. It builds your CV from those facts only, finds the Hong Kong internships and graduate roles that fit you, and helps you apply. Free, on your own computer.</p>
+  <div class="cta">
+    <a class="btn" href="https://github.com/Kaito-ishiguro/career-console-download/releases/latest/download/CareerConsole-Setup.exe">Download for Windows</a>
+    <span class="small">Windows 10 or 11 · free · sign in with your HKU email, no AI key needed</span>
+  </div>
+  <div class="status" id="ai-status" hidden><i></i><span></span></div>
+  <p class="small">Version 0.3.0 · SHA-256 <span style="word-break:break-all">4eacc2e333b3f29c4567e3e68dd08b36758682ec538f73d8e955e8b7352868b2</span> (in PowerShell: <code>Get-FileHash CareerConsole-Setup.exe</code>)</p>
+
+  <section class="steps">
+    <div class="step"><b>01</b><h3>Tell it everything</h3><p>Jobs, projects, societies, volunteering, grades, in your own words. Messy is fine.</p></div>
+    <div class="step"><b>02</b><h3>See how it connects</h3><p>A map of your experience, and the questions that turn a vague line into a strong one.</p></div>
+    <div class="step"><b>03</b><h3>Get a real CV</h3><p>One page, built only from what you confirmed. Nothing invented.</p></div>
+    <div class="step"><b>04</b><h3>Swipe ten jobs</h3><p>Pick your roles and swipe ten postings from NETjobs, Indeed and LinkedIn. It learns what you want.</p></div>
+  </section>
+
+  <h2>Free, and Pro</h2>
+  <div class="tiers">
+    <div class="tier"><h3>Free</h3><ul>
+      <li>Your career brain, the connections map, gap questions</li>
+      <li>A tailored CV and cover letter for every application</li>
+      <li>Job search, ranked for you, with a tracker</li>
+    </ul></div>
+    <div class="tier pro"><h3>Pro</h3><ul>
+      <li>Everything in Free</li>
+      <li>It fills in the application form for you, in your browser. You still press submit.</li>
+    </ul></div>
+  </div>
+
+  <h2>Installing</h2>
+  <ol class="install">
+    <li>Open <b>CareerConsole-Setup.exe</b> from your Downloads.</li>
+    <li>Windows may say <b>"Windows protected your PC"</b>. The app isn't code-signed yet. Press <b>More info</b>, then <b>Run anyway</b>.</li>
+    <li>It installs and opens by itself. Sign in with your <b>@connect.hku.hk</b> email and follow the steps.</li>
+  </ol>
+
+  <h2>Good to know</h2>
+  <ul>
+    <li>Your career notes and CV stay on your computer. To write them, what you type is sent to a free AI model the Career Console team runs on its own computer (not a big AI company), read, and not stored.</li>
+    <li>That computer is shared by everyone, so each person gets a daily limit, and if it is busy or switched off the app waits and tries again by itself.</li>
+    <li>Job postings come from HKU NETjobs, Indeed and LinkedIn, collected for you. Nothing is searched from your computer.</li>
+    <li>You review everything, and you always submit the application yourself.</li>
+  </ul>
+  <footer>Career Console · made in Hong Kong · <a href="https://github.com/Kaito-ishiguro/career-console-download/releases" style="color:inherit">all versions</a></footer>
+</main>
+<script>
+  // The free AI runs on one computer, which is sometimes off. Say so before anyone installs.
+  fetch("https://career-console-pool.toukai.workers.dev/status").then((r) => r.json()).then((s) => {
+    const el = document.getElementById("ai-status");
+    el.className = "status " + s.ai;
+    el.querySelector("span").textContent = s.ai === "online"
+      ? "The free AI is online right now" + (s.queue ? " (" + s.queue + " in line" + (s.wait >= 60 ? ", about " + Math.round(s.wait / 60) + " min wait" : "") + ")" : "")
+      : "The free AI is resting right now. The app still works: AI steps wait and run when it is back.";
+    el.hidden = false;
+  }).catch(() => {});
+</script>
+</body>
+</html>
